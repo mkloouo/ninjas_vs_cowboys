@@ -1,0 +1,9 @@
+#*#
+*~
+objects/
+build*/
+*.a
+*.so
+*.obj
+*.o
+ninja_vs_cowboys
