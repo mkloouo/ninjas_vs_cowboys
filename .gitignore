@@ -7,3 +7,4 @@ build*/
 *.obj
 *.o
 ninja_vs_cowboys
+.vscode/
