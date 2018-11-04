@@ -4,10 +4,15 @@
 class Point
 {
 public:
-	Point(double x, double y) : x_(x), y_(y) {}
-	double distance(Point const& p2);
-	void print();
-	Point moveTowards(Point const& source, Point const& target, double distance);
+	Point(double x, double y)
+		: x_(x), y_(y)
+	{}
+
+	double distance(Point const& p2) const;
+	void print() const;
+	static Point moveTowards(Point const& source,
+				Point const& target,
+				double distance);
 
 private:
 	double x_;
