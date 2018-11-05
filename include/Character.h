@@ -7,35 +7,25 @@
 class Character
 {
 public:
-	enum class Type {Ninja = 'N', Cowboy = 'C'};
+	Character(std::string name, int hp, Point location)
+		: name_(name), hp_(hp), location_(location)
+	{}
+	virtual ~Character() {}
 
-	Character(std::string name, int hp, Type type,
-		  Point initial_location = Point(0, 0))
-		: name_(name), hp_(hp),
-		type_(type), location_(initial_location)
-	{
-	}
-
-	bool isAlive() { return hp_ <= 0; }
-	double distance(Character const* other)
+	void print() const;
+	bool isAlive() const { return hp_ > 0; }
+	std::string getName() const { return name_; }
+	Point getLocation() const { return location_; }
+	double distance(Character const* other) const
 	{
 		return location_.distance(other->getLocation());
 	}
-	void hit(int amount)
-	{
-		if (hp_ > 0)
-		{
-			hp_ -= amount;
-		}
-	}
-	std::string getName() const { return name_; }
-	Point getLocation() const { return location_; }
-	void print() const;
 
-private:
+	void hit(int amount);
+
+protected:
 	std::string name_;
 	int hp_;
-	Type type_;
 	Point location_;
 };
 
